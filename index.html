@@ -1,93 +1,388 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Software Engineer</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jordan Montenegro | Software Engineer & AI Specialist</title>
+  <meta name="description" content="Portfolio of Jordan Montenegro - Software Engineer specialized in Python, Artificial Intelligence, Machine Learning, and Cloud Architecture." />
+  
+  <!-- Inter Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --tag-bg: #1e293b;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .container {
+      max-width: 860px;
+      width: 100%;
+    }
+
+    /* Hero Section */
+    header {
+      margin-bottom: 3.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+    }
+
+    .bio {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0b0f19;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background-color: var(--tag-bg);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--border);
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin-left: 0.75rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      font-size: 0.825rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2.15rem; }
+      .tagline { font-size: 1.1rem; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#servicios">Servicios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portafolio">Portafolio</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <section id="hero">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <h1>Desarrollo de software a medida</h1>
-            
+  <div class="container">
+    <!-- Hero Header -->
+    <header>
+      <span class="badge">Available for Projects & Collaboration</span>
+      <h1>Jordan Montenegro</h1>
+      <p class="tagline">Software Engineer & AI / Machine Learning Specialist</p>
+      <p class="bio">
+        Software engineer focused on scalable backend architectures, predictive machine learning models, and modern cloud solutions. Experienced in developing high-throughput APIs, data pipelines, and intelligent web applications.
+      </p>
+      <div class="btn-group">
+        <a href="mailto:jordan.rodrigom@hotmail.com" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Get in Touch
+        </a>
+        <a href="https://github.com/Jorel22" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub Profile
+        </a>
+        <a href="https://linkedin.com/in/jordanr-montenegroc" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          LinkedIn
+        </a>
+      </div>
+    </header>
+
+    <!-- Technical Stack -->
+    <section>
+      <h2>Technical Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Backend & APIs</h3>
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Flask</span>
+            <span class="tag">REST APIs</span>
           </div>
-        
+        </div>
+
+        <div class="skill-card">
+          <h3>AI & Machine Learning</h3>
+          <div class="tag-container">
+            <span class="tag">PyTorch</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Computer Vision</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Databases & Storage</h3>
+          <div class="tag-container">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Data Modeling</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <h3>Cloud & DevOps</h3>
+          <div class="tag-container">
+            <span class="tag">AWS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Serverless Framework</span>
+            <span class="tag">Git / CI/CD</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="servicios">
-      <div class="container">
-        <h2>Mis servicios</h2>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header text-center">
-                Desarrollo Backend
-              </div>
-              <div class="card-body">
-                <p>Desarrollo de aplicaciones web robustas y escalables con Python.</p>
-                <ul class="list-unstyled">
-                  <li>Django</li>
-                  <li>Flask</li>
-                  <li>FastAPI</li>
-                </ul>
-              </div>
-            </div>
+    <!-- Selected Projects -->
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Web News Crawler & Scraper Engine</span>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-header text-center">
-                Inteligencia Artificial y Chatbots
-              </div>
-              <div class="card-body">
-                <p>Creación de chatbots inteligentes y sistemas de IA para diferentes aplicaciones.</p>
-                <ul class="list-unstyled">
-                  <li>Procesamiento del lenguaje natural</li>
-                  <li>Machine learning</li>
-                  <li>Deep learning</li>
-                </ul>
-              </div>
-            </div>
+          <p class="project-desc">
+            Automated news extraction and parsing service designed to crawl real-time feeds from Y Combinator, transform unstructured content, and store indexed records into MongoDB.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">Web Scraping</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">ETL</span>
           </div>
-          
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Desktop Document Automation Tool</span>
           </div>
-  <section>
-    <div class="container"> 
-      <div class="row">
-        <div class="col-md-6">
-          <h2>Contacto</h2>
-          
+          <p class="project-desc">
+            Productivity utility built to streamline and automate customized Microsoft Word document creation, templating, and repetitive business reporting processes.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">Tkinter</span>
+            <span class="tag">Document Automation</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">Memory Allocation & Virtualization Simulator</span>
+          </div>
+          <p class="project-desc">
+            Educational OS systems simulator modeling dynamic memory management, segmentation, and paging algorithms for low-level architecture understanding.
+          </p>
+          <div class="tag-container">
+            <span class="tag">Python</span>
+            <span class="tag">Systems Simulation</span>
+            <span class="tag">Algorithms</span>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Footer -->
+    <footer>
+      <div>&copy; 2026 Jordan Montenegro. All rights reserved.</div>
+      <div>
+        <a href="mailto:jordan.rodrigom@hotmail.com">jordan.rodrigom@hotmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
